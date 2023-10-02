@@ -6,6 +6,8 @@
 		"dev": "deno run -A --node-modules-dir npm:vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
+		"drizzle:generate": "drizzle-kit generate:sqlite --out ./drizzle/migrations --breakpoints --schema=./drizzle/schema.ts",
+		"drizzle:migrate": "tsx drizzle/migrate.ts",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
@@ -16,6 +18,7 @@
 		"@sveltejs/kit": "^1.20.4",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
+		"drizzle-kit": "^0.19.13",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
@@ -25,11 +28,13 @@
 		"svelte-check": "^3.4.3",
 		"sveltekit-adapter-deno": "^0.11.2",
 		"tslib": "^2.4.1",
+		"tsx": "^3.13.0",
 		"typescript": "^5.0.0",
 		"vite": "^4.4.2"
 	},
 	"type": "module",
 	"dependencies": {
-		"@libsql/client": "^0.3.5"
+		"@libsql/client": "^0.3.5",
+		"drizzle-orm": "^0.28.6"
 	}
 }
